@@ -58,14 +58,29 @@ $session = Session::get('email');
                         </a>
 
                         <!-- Modal -->
-                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <?php
+                            if(Session::get('error'))
+                            {
+                                $class='modal fade in';
+                                $style='display:block';
+                                $aria='false';
+                            }
+                            else{
+                                $class='modal fade';
+                                $style='display:hidden';
+                                $aria='true';
+                            }
+                            ?>
+                        <div class="<?php echo $class?>"  style="<?php echo $style; ?>" aria-hidden="<?php echo $aria?>" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                             <div class="modal-dialog" id="loginModal" role="document">
                                 <div class="modal-content" style="	border-radius: 0px;">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span></button>
                                         <h4 class="modal-title" id="myModalLabel">Login Here!</h4>
+
                                     </div>
+
                                     <div class="modal-body">
                                         <div class="row centered-form">
                                             <div class="col-xs-12">
@@ -77,7 +92,7 @@ $session = Session::get('email');
                                                             <div class="row">
 
                                                                 <div class="form-group">
-                                                                    <input type="text" name="email" id="email"
+                                                                    <input type="email" name="email" id="email"
                                                                            class="form-control input-sm"
                                                                            placeholder="Email Address">
                                                                 </div>
@@ -95,13 +110,22 @@ $session = Session::get('email');
                                                             <input type="submit" value="Join"
                                                                    class="btn btn-info btn-block">
                                                         </form>
+
                                                     </div>
+                                                    <?php if(Session::get('error'))
+                                                    {?>
+                                                    <div class="alert alert-danger">
+                                                        <strong>Warning!</strong> Invalid Username/Password
+                                                    </div>
+                                                    <?php }?>
                                                 </div>
                                             </div>
                                         </div>
 
                                     </div>
+
                                 </div>
+
                             </div>
                         </div>
                     </li>

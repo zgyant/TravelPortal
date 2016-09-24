@@ -43,8 +43,21 @@ class Handler extends ExceptionHandler
      * @param  \Exception  $e
      * @return \Illuminate\Http\Response
      */
+//    public function render($request, Exception $e)
+//    {
+//        return parent::render($request, $e);
+//    }
+
     public function render($request, Exception $e)
     {
+        if($e instanceof NotFoundHttpException)
+        {
+            return response()->view('error/404', [], 404);
+        }
         return parent::render($request, $e);
+    }
+    public function forbiddenResponse()
+    {
+        return response()->view('error/403');
     }
 }

@@ -23,14 +23,17 @@ class AccountController extends Controller
 
             if(Auth::attempt(['email' => $email, 'password' => $password,'usertype'=>'admin']))
             {
-                echo 'admin';
                 Session::put(['email'=>$email,'type'=>'admin']);
+                return Redirect::intended('/home');
             }else{
-                echo 'peasant';
                 Session::put(['email'=>$email,'type'=>'user']);
+                return Redirect::intended('/home');
             }
 
         }else{
+            Session::flash('error', 'Invalid Username or Password');
+            //return Redirect::intended('/');
+
             return Redirect::intended('/');
         }
     }
@@ -47,8 +50,8 @@ class AccountController extends Controller
         $user->address=Input::get('contactaddress');
         $user->usertype='user';
         $user->save();
-        Session::put('email',$email);
-        return Redirect::intended('/');
+        Session::put(['email'=>$email,'type'=>'user']);
+        return Redirect::intended('/home');
     }
     public function logout(Request $request)
     {
