@@ -58,6 +58,7 @@ $session = Session::get('email');
                         </a>
 
                         <!-- Modal -->
+                        <div id="jaduumodel">
                     <?php
                             if(Session::get('error'))
                             {
@@ -73,7 +74,7 @@ $session = Session::get('email');
                             ?>
                         <div class="<?php echo $class?>"  style="<?php echo $style; ?>" aria-hidden="<?php echo $aria?>" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                             <div class="modal-dialog" id="loginModal" role="document">
-                                <div class="modal-content" style="	border-radius: 0px;">
+                                <div class="modal-content" id="jaduumodal-content" style="	border-radius: 0px;">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span></button>
@@ -127,6 +128,7 @@ $session = Session::get('email');
                                 </div>
 
                             </div>
+                        </div>
                         </div>
                     </li>
                     <li><!-- Button trigger modal -->

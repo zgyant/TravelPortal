@@ -13,6 +13,7 @@ Route::get('/login', function () {
 Route::get('/register', function () {
     return view('index');
 });
+
 Route::post('/register', 'AccountController@register');
 //POST route
 Route::post('/login', 'AccountController@login');

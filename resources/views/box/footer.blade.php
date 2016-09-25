@@ -6,3 +6,9 @@
 </body>
 
 </html>
+<script>
+    $(".close").click(function(){
+        $("#myModal").fadeOut().removeClass("active");
+    });
+
+</script>

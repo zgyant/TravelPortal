@@ -33,7 +33,6 @@ class AccountController extends Controller
         }else{
             Session::flash('error', 'Invalid Username or Password');
             //return Redirect::intended('/');
-
             return Redirect::intended('/');
         }
     }
