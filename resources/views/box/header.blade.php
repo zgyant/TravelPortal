@@ -1,9 +1,7 @@
 <?php
 $session = Session::get('email');
         $sessiontype=Session::get('type');
-        echo $session;
-        echo $sessiontype;
-?>
+        ?>
 
 
         <!DOCTYPE html>
@@ -39,11 +37,7 @@ $session = Session::get('email');
                     <li class="active"><a href="<?php  echo url('/');?>"><i class="fa fa-home fa-3"></i> </a></li>
                     <li><a href="?page=activities">Activities</a></li>
                 </ul>
-                <form class="navbar-form navbar-left">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search Travel Portal">
-                    </div>
-                </form>
+
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="?page=aboutus" title="About us"><i class="fa fa-users fa-3"></i></a></li>
                     <li><a href="?page=contactus" title="Contact us"><i class="fa fa-phone fa-3"></i></a></li>
@@ -206,14 +200,25 @@ $session = Session::get('email');
                         else {
 
                             ?>
-                        <a href="logout" type="button" title="Logout">
-                            <i class="fa fa-sign-out fa-3"></i>
-                        </a>
-                        <?php
 
 
-                        }?>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>  <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="home"  title="Home">
+                                    <i class="fa fa-dashboard fa-3"></i> Home
+                                </a>
+                            </li>
+
+                            <li class="divider"></li>
+                            <li>
+                                <a href="logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            </li>
+                        </ul>
                     </li>
+                        <?php
+                        }?>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
