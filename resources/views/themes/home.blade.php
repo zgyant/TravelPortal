@@ -1,5 +1,6 @@
 <?php
 use App\Stories;
+use App\Users;
 $stories = Stories::all();
 foreach($stories as $story)
 {
@@ -7,7 +8,10 @@ foreach($stories as $story)
         $uimg=$story->uimage;
         $cimg=$story->cimage;
         $user=$story->user;
-
+$users=Users::where('email',$user)->get();
+foreach($users as $user)
+{
+	$user=$user->fname;
 ?>
 
 <div class="container">
@@ -52,5 +56,6 @@ foreach($stories as $story)
 </div>
 
 <?php
+}
 }
 ?>
