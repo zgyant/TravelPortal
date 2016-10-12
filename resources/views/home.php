@@ -51,6 +51,5 @@ if (Session::has('email')) {
     }
 } else {
     abort(403, 'Unauthorized action.');
-
 }
 ?>

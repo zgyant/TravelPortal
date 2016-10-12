@@ -2,22 +2,6 @@
 use App\Packages;
 $trekkings = Packages::where('activity', 'Trekking')->get();
 $raftings = Packages::where('activity', 'rafting')->get();
-foreach($trekkings as $trekking)
-{
-    $tlocation= $trekking->location;
-    $tcost= $trekking->cost;
-    $tcompany= $trekking->company;
-    $ttime= $trekking->time;
-    $tid=$trekking->id;
-}foreach($raftings as $rafting)
-{
-    $rlocation= $rafting->location;
-    $rcost= $rafting->cost;
-    $rcompany= $rafting->company;
-    $rtime= $rafting->time;
-    $rid=$rafting->id;
-}
-
 ?>
 
 
@@ -41,15 +25,24 @@ foreach($trekkings as $trekking)
                     <th>Action</th>
                 </tr>
                 </thead>
+                <?php foreach($raftings as $rafting)
+                {   $rlocation= $rafting->location;
+                $rcost= $rafting->cost;
+                $rcompany= $rafting->company;
+                $rtime= $rafting->time;
+                $rid=$rafting->id;?>
                 <tbody>
                 <tr>
+
                     <td><?php echo $rlocation?></td>
                     <td><?php echo $rcost?></td>
                     <td><?php echo $rcompany?></td>
                     <td><?php echo $rtime?></td>
                     <td><a href="booking?id=<?php echo $rid?>">Book</a></td>
+
                 </tr>
                 </tbody>
+                <?php } ?>
             </table>
         </div>
         <div id="trekking" class="tab-pane fade">
@@ -68,11 +61,18 @@ foreach($trekkings as $trekking)
                 </thead>
                 <tbody>
                 <tr>
+                    <?php foreach($trekkings as $trekking)
+                    { $tlocation= $trekking->location;
+                    $tcost= $trekking->cost;
+                    $tcompany= $trekking->company;
+                    $ttime= $trekking->time;
+                    $tid=$trekking->id; ?>
                     <td><?php echo $tlocation?></td>
                     <td><?php echo $tcost?></td>
                     <td><?php echo $tcompany?></td>
                     <td><?php echo $ttime?></td>
                     <td><a href="booking?id=<?php echo $tid?>">Book</a></td>
+                    <?php } ?>
                 </tr>
                 </tbody>
             </table>

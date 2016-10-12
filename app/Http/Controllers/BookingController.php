@@ -30,7 +30,8 @@ class BookingController extends Controller
         }
         else
         {
-            abort(403, 'Unauthorized action.');
+            Session::flash('error','Please Login');
+           return redirect()->intended('/');
         }
     }
 }

@@ -110,7 +110,7 @@ $session = Session::get('email');
                                                     <?php if(Session::get('error'))
                                                     {?>
                                                     <div class="alert alert-danger">
-                                                        <strong>Warning!</strong> Invalid Username/Password
+                                                        <strong>Warning!</strong> <?php echo Session::get('error'); ?>
                                                     </div>
                                                     <?php }?>
                                                 </div>
